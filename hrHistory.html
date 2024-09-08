@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HR History</title>
+    <link href="css/bootstrap.css" rel="stylesheet" type="text/css" />
+    <script src="js/bootstrap.bundle.js"></script>
+
+    <style>
+        .log {
+            text-align: right;
+        }
+
+        #offcanvasDarkNavbar {
+            width: 25%;
+        }
+
+
+
+        .nav-link {
+            color: white;
+
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+        }
+
+        #footer {
+            position: fixed;
+            bottom: 0;
+
+        }
+    </style>
+</head>
+
+<body>
+    <div id="outer" class="container-fluid">
+
+        <nav class="navbar navbar-dark  fixed-top " style="background: rgb(63, 63, 97); ">
+            <div class="container-fluid">
+                <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas"
+                    data-bs-target="#offcanvasDarkNavbar" aria-controls="offcanvasDarkNavbar"
+                    aria-label="Toggle navigation" onclick="min()">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+
+
+
+                <div class="ms-auto me-4">
+
+                </div>
+                <div class="dropdown dropstart">
+                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                        aria-expanded="false">
+                        <img src="" style="width:40px; border-radius:50%;" />
+                    </a>
+
+                </div>
+            </div>
+        </nav>
+        <div class="row">
+            <div class="col-sm-3">
+
+                <!-- slide bar start  -->
+                <div class="offcanvas offcanvas-start show w-auto" style="background: rgb(53, 53, 87);" tabindex="-1"
+                    id="offcanvasDarkNavbar" aria-labelledby="offcanvasDarkNavbarLabel" data-bs-scroll="true"
+                    data-bs-backdrop="false">
+                    <div class="offcanvas-header">
+                        <span></span>
+                        <img src="" alt="" width="75px" class="ms-2">
+
+
+
+
+
+                        <button type="button" class="btn-close btn-close-dark text-light" data-bs-dismiss="offcanvas"
+                            aria-label="Close" onclick="max()">
+                        </button>
+                    </div>
+                    <span
+                        style="color:white; font-weight:bold; font-size:25px;font-family:calibiri; margin-left:54px; letter-spacing:4px; ">Job
+                        Portal</span>
+
+                    <div class="offcanvas-body ">
+                        <h6 class="offcanvas-title m-0" id="offcanvasDarkNavbarLabel"> <a href="dashboard.html"
+                                style="color:white; text-decoration:none;"><i class="fa-solid fa-house p-2"></i>Home</a></h6>
+                        <hr />
+                        <ul class="navbar-nav justify-content-end flex-grow-1 pe-1">
+                            <li class="nav-item">
+                                <a class="nav-link m-0 ms-1" href="jobList.html">Job Lists
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link m-0 ms-1" aria-current="page" href="testManage.html">Manage Test
+                                    Scores
+                                    of candidates</a>
+                            </li>
+
+
+                            <li class="nav-item">
+                                <div class="dropdown">
+                                    <a class="nav-link dropdown-toggle ms-1" href="candidateManage.html" role="button"
+                                        data-bs-toggle="dropdown" aria-expanded="false"></i>Manage candidates
+                                    </a>
+                                    <ul class="dropdown-menu bg-light ">
+                                        <li><a class="dropdown-item text-success" href="candidateHistory.html">candidate
+                                                History
+                                            </a></li>
+                                        <li><a class="dropdown-item text-success" href="controlAccess.html">Control
+                                                Access
+                                            </a></li>
+
+                                    </ul>
+                                </div>
+                            </li>
+                            <li class="nav-item">
+                                <div class="dropdown">
+                                    <a class="nav-link dropdown-toggle ms-1" href="hrManage.html" role="button"
+                                        data-bs-toggle="dropdown" aria-expanded="false"></i>Manage HR
+                                    </a>
+                                    <ul class="dropdown-menu bg-light ">
+                                        <li><a class="dropdown-item text-success" href="hrHistory.html">HR History
+                                            </a></li>
+                                        <li><a class="dropdown-item text-success" href="permission.html">Permission
+                                            </a></li>
+
+                                    </ul>
+                                </div>
+                            </li>
+
+
+                        </ul>
+                    </div>
+                </div>
+                <!-- side bar end  -->
+
+                <!-- right icon start -->
+                <!-- right icon end  -->
+            </div>
+
+            <div class="containt col-sm-9 m-auto p-5 mt-5 pt-5  me-3" id="max">
+                <div class="container mt-5">
+                    <h1 class="mb-4">HR History</h1>
+                
+                    <div class="row mb-3">
+                        <div class="col-md-6">
+                            <input type="text" id="hrSearch" class="form-control" placeholder="Search by HR Name..."
+                                onkeyup="filterHRHistory()">
+                        </div>
+                    </div>
+                
+                    <table class="table table-striped">
+                        <thead class="table-dark">
+                            <tr>
+                                <th scope="col">HR ID</th>
+                                <th scope="col">HR Name</th>
+                                <th scope="col">Role</th>
+                                <th scope="col">Activity</th>
+                                <th scope="col">Date</th>
+                            </tr>
+                        </thead>
+                        <tbody id="hrHistoryTableBody">
+                            <tr>
+                                <th scope="row">1</th>
+                                <td>Abhay Tripathi</td>
+                                <td>Senior HR Manager</td>
+                                <td>Approved Leave Request</td>
+                                <td>2024-09-01</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">2</th>
+                                <td>Akash </td>
+                                <td>HR Executive</td>
+                                <td>Updated Candidate Record</td>
+                                <td>2024-08-28</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">3</th>
+                                <td>Rohit Gupta</td>
+                                <td>HR Coordinator</td>
+                                <td>Scheduled Interview</td>
+                                <td>2024-08-25</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+
+            </div>
+            <script>
+                function min() {
+                    document.getElementById('max').classList.add('col-sm-9');
+                    document.getElementById('max').classList.remove('col-sm-12');
+                }
+                function max() {
+                    document.getElementById('max').classList.add('col-sm-12');
+                    document.getElementById('max').classList.remove('col-sm-9');
+                }
+            </script>
+
+            <div class="row bg-dark text-center p-1 w-100 m-auto " id="footer">
+
+
+                <span style="color:white; ">&copy; All right reserved Designed and Developed by <span
+                        style="color:yellow;">Prashant
+                        Yadav</span></span>
+
+
+
+            </div>
+            <script src="js/candidateHistory.js"></script>
+</body>
+
+</html>
